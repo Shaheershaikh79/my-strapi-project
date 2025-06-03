@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_common_icon_details",
+  "info": {
+    "displayName": "IconDetails",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "displayName": "iconArray",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.icon-array"
+    }
+  }
+}

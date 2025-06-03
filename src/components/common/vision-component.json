@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_common_vision_components",
+  "info": {
+    "displayName": "VisionComponent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "IconsDescriptions": {
+      "displayName": "IconDetails",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.icon-details"
+    }
+  }
+}

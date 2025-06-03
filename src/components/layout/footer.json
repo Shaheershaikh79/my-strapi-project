@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_layout_footers",
+  "info": {
+    "displayName": "HomeFooter",
+    "description": "Website footer with links and contact info"
+  },
+  "options": {},
+  "attributes": {
+    "logoName": {
+      "type": "string",
+      "default": "STEIN MARINE"
+    },
+    "tagline": {
+      "type": "text",
+      "default": "Premium stones, ceramics, and bricks for architectural excellence. Serving designers and builders worldwide since 1992."
+    },
+    "quickLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.link-item"
+    },
+    "materialLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.link-item"
+    },
+    "contactInfo": {
+      "type": "component",
+      "component": "common.contact-details"
+    },
+    "copyrightText": {
+      "type": "string",
+      "default": "© 2024 StoneCraft. All rights reserved"
+    },
+    "legalLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.link-item"
+    }
+  }
+}

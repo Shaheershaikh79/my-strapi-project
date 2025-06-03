@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_common_main_banners",
+  "info": {
+    "displayName": "MainBannerSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "HeroSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.section"
+    },
+    "buttonOneTitle": {
+      "type": "string"
+    },
+    "buttonTwoTitle": {
+      "type": "string"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

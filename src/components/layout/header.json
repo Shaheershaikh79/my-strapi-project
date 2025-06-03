@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_layout_header",
+  "info": {
+    "displayName": "Header",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "headerLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.link-item"
+    }
+  }
+}

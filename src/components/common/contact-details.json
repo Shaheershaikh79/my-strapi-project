@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_common_contact_details",
+  "info": {
+    "displayName": "Contact Details",
+    "icon": "address-book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "address": {
+      "type": "text"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "time": {
+      "type": "string"
+    }
+  }
+}

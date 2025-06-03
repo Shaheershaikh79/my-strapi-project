@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_common_project_showcases",
+  "info": {
+    "displayName": "projectShowcase"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "projectshowcaseImages": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

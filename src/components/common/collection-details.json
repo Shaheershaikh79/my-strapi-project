@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_common_collection_details",
+  "info": {
+    "displayName": "CollectionDetails",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

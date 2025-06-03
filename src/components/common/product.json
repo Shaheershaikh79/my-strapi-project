@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_common_products",
+  "info": {
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "ProductSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.section"
+    },
+    "productImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

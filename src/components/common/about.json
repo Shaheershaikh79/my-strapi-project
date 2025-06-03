@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_common_abouts",
+  "info": {
+    "displayName": "contact-us",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "decription": {
+      "type": "string"
+    }
+  }
+}

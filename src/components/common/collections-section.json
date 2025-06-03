@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_common_collections_sections",
+  "info": {
+    "displayName": "CollectionsSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "CollectionComponent": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.section"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "cards": {
+      "displayName": "CollectionsCardsDetails",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.collections-cards-details"
+    }
+  }
+}
