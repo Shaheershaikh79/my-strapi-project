@@ -127,7 +127,7 @@ export interface CommonMainBanner extends Struct.ComponentSchema {
     displayName: 'MainBannerSection';
   };
   attributes: {
-    backgroundImage: Schema.Attribute.Media<
+    backgroundVideo: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
     buttonOneTitle: Schema.Attribute.String;
@@ -143,10 +143,8 @@ export interface CommonProduct extends Struct.ComponentSchema {
     displayName: 'Product';
   };
   attributes: {
-    productImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    ProductSection: Schema.Attribute.Component<'common.section', true>;
+    description: Schema.Attribute.String;
+    name: Schema.Attribute.String;
   };
 }
 
@@ -175,6 +173,29 @@ export interface CommonSection extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface CommonValue extends Struct.ComponentSchema {
+  collectionName: 'components_common_values';
+  info: {
+    description: '';
+    displayName: 'value';
+  };
+  attributes: {
+    value: Schema.Attribute.String;
+  };
+}
+
+export interface CommonVariations extends Struct.ComponentSchema {
+  collectionName: 'components_common_variations';
+  info: {
+    description: '';
+    displayName: 'variations';
+  };
+  attributes: {
+    label: Schema.Attribute.Enumeration<['size ', 'color', 'thickness']>;
+    value: Schema.Attribute.Component<'common.value', true>;
   };
 }
 
@@ -250,6 +271,8 @@ declare module '@strapi/strapi' {
       'common.product': CommonProduct;
       'common.project-showcase': CommonProjectShowcase;
       'common.section': CommonSection;
+      'common.value': CommonValue;
+      'common.variations': CommonVariations;
       'common.vision-component': CommonVisionComponent;
       'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;

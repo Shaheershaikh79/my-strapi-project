@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_variations",
+  "info": {
+    "singularName": "product-variation",
+    "pluralName": "product-variations",
+    "displayName": "productVariation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "label": {
+      "type": "enumeration",
+      "enum": [
+        "size",
+        "color",
+        "thickness"
+      ]
+    },
+    "value": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.value"
+    }
+  }
+}

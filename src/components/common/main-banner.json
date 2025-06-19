@@ -17,7 +17,7 @@
     "buttonTwoTitle": {
       "type": "string"
     },
-    "backgroundImage": {
+    "backgroundVideo": {
       "type": "media",
       "multiple": false,
       "required": false,

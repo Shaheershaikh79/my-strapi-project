@@ -23,11 +23,11 @@
       "type": "media",
       "multiple": false
     },
-    "product": {
+    "products": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::product.product",
-      "inversedBy": "catalogues"
+      "mappedBy": "catalogue"
     }
   }
 }

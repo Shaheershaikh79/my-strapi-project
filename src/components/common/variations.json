@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_common_variations",
+  "info": {
+    "displayName": "variations",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "enumeration",
+      "enum": [
+        "size ",
+        "color",
+        "thickness"
+      ]
+    },
+    "value": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.value"
+    }
+  }
+}
