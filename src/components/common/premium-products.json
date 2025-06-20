@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_common_premium_products",
+  "info": {
+    "displayName": "premiumProductsSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "commonSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.section"
+    },
+    "backgroundImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -510,7 +510,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'common.collections-section',
         'common.discovery-section',
         'common.project-showcase',
-        'common.icon-details',
+        'common.premium-products',
       ]
     >;
     slug: Schema.Attribute.String &
@@ -573,6 +573,9 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    backgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     catalogue: Schema.Attribute.Relation<
       'manyToOne',
       'api::catalogue.catalogue'

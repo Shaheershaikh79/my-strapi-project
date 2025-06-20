@@ -21,6 +21,8 @@ export default factories.createCoreController(
                 value: true,
               },
             },
+            backgroundImage:true,
+
             catalogue: {
               populate: {
                 file: true,

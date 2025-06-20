@@ -136,6 +136,20 @@ export interface CommonMainBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonPremiumProducts extends Struct.ComponentSchema {
+  collectionName: 'components_common_premium_products';
+  info: {
+    description: '';
+    displayName: 'premiumProductsSection';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    commonSection: Schema.Attribute.Component<'common.section', false>;
+  };
+}
+
 export interface CommonProduct extends Struct.ComponentSchema {
   collectionName: 'components_common_products';
   info: {
@@ -268,6 +282,7 @@ declare module '@strapi/strapi' {
       'common.icon-details': CommonIconDetails;
       'common.link-item': CommonLinkItem;
       'common.main-banner': CommonMainBanner;
+      'common.premium-products': CommonPremiumProducts;
       'common.product': CommonProduct;
       'common.project-showcase': CommonProjectShowcase;
       'common.section': CommonSection;
