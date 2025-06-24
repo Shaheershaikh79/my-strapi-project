@@ -6,18 +6,20 @@
   },
   "options": {},
   "attributes": {
-    "label": {
-      "type": "enumeration",
-      "enum": [
-        "size ",
-        "color",
-        "thickness"
-      ]
+    "colors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::color.color"
     },
-    "value": {
-      "type": "component",
-      "repeatable": true,
-      "component": "common.value"
+    "thicknesses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::thickness.thickness"
+    },
+    "sizes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::size.size"
     }
   }
 }

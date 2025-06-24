@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "thicknesses",
+  "info": {
+    "singularName": "thickness",
+    "pluralName": "thicknesses",
+    "displayName": "Thickness"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "value": {
+      "type": "string"
+    }
+  }
+}

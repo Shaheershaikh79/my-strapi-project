@@ -196,9 +196,7 @@ export interface CommonValue extends Struct.ComponentSchema {
     description: '';
     displayName: 'value';
   };
-  attributes: {
-    value: Schema.Attribute.String;
-  };
+  attributes: {};
 }
 
 export interface CommonVariations extends Struct.ComponentSchema {
@@ -208,8 +206,12 @@ export interface CommonVariations extends Struct.ComponentSchema {
     displayName: 'variations';
   };
   attributes: {
-    label: Schema.Attribute.Enumeration<['size ', 'color', 'thickness']>;
-    value: Schema.Attribute.Component<'common.value', true>;
+    colors: Schema.Attribute.Relation<'oneToMany', 'api::color.color'>;
+    sizes: Schema.Attribute.Relation<'oneToMany', 'api::size.size'>;
+    thicknesses: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::thickness.thickness'
+    >;
   };
 }
 

@@ -37,18 +37,19 @@
     },
     "variations": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "common.variations"
     },
     "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
