@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_common_project_cards",
+  "info": {
+    "displayName": "projectCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "height": {
+      "type": "enumeration",
+      "enum": [
+        "small",
+        "large",
+        "medium"
+      ]
+    }
+  }
+}

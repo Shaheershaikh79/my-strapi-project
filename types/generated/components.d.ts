@@ -162,6 +162,23 @@ export interface CommonProduct extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonProjectCard extends Struct.ComponentSchema {
+  collectionName: 'components_common_project_cards';
+  info: {
+    description: '';
+    displayName: 'projectCard';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
+    description: Schema.Attribute.String;
+    height: Schema.Attribute.Enumeration<['small', 'large', 'medium']>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface CommonProjectShowcase extends Struct.ComponentSchema {
   collectionName: 'components_common_project_showcases';
   info: {
@@ -286,6 +303,7 @@ declare module '@strapi/strapi' {
       'common.main-banner': CommonMainBanner;
       'common.premium-products': CommonPremiumProducts;
       'common.product': CommonProduct;
+      'common.project-card': CommonProjectCard;
       'common.project-showcase': CommonProjectShowcase;
       'common.section': CommonSection;
       'common.value': CommonValue;
