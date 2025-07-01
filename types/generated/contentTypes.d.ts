@@ -376,6 +376,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiCatalogueCatalogue extends Struct.CollectionTypeSchema {
   collectionName: 'catalogues';
   info: {
+    description: '';
     displayName: 'Catalogue';
     pluralName: 'catalogues';
     singularName: 'catalogue';
@@ -384,10 +385,13 @@ export interface ApiCatalogueCatalogue extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.String;
     file: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    KeyFeatures: Schema.Attribute.Component<'common.key-features', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -396,6 +400,7 @@ export interface ApiCatalogueCatalogue extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -655,6 +660,101 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
       'api::project.project'
     > &
       Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiQuoteRequestQuoteRequest
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'quote_requests';
+  info: {
+    displayName: 'quoteRequest';
+    pluralName: 'quote-requests';
+    singularName: 'quote-request';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::quote-request.quote-request'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    phone: Schema.Attribute.Integer;
+    product: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRequestFormRequestForm extends Struct.SingleTypeSchema {
+  collectionName: 'request_forms';
+  info: {
+    description: '';
+    displayName: 'Request Form';
+    pluralName: 'request-forms';
+    singularName: 'request-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fieldName: Schema.Attribute.Component<'common.name', true>;
+    formTitle: Schema.Attribute.Component<'common.section', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::request-form.request-form'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSendMessageSendMessage extends Struct.CollectionTypeSchema {
+  collectionName: 'send_messages';
+  info: {
+    displayName: 'sendMessage';
+    pluralName: 'send-messages';
+    singularName: 'send-message';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::send-message.send-message'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    name: Schema.Attribute.String;
+    phone: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1232,6 +1332,9 @@ declare module '@strapi/strapi' {
       'api::product-variation.product-variation': ApiProductVariationProductVariation;
       'api::product.product': ApiProductProduct;
       'api::project.project': ApiProjectProject;
+      'api::quote-request.quote-request': ApiQuoteRequestQuoteRequest;
+      'api::request-form.request-form': ApiRequestFormRequestForm;
+      'api::send-message.send-message': ApiSendMessageSendMessage;
       'api::size.size': ApiSizeSize;
       'api::thickness.thickness': ApiThicknessThickness;
       'plugin::content-releases.release': PluginContentReleasesRelease;

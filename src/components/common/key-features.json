@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_common_key_features",
+  "info": {
+    "displayName": "keyFeatures"
+  },
+  "options": {},
+  "attributes": {
+    "option": {
+      "type": "string"
+    }
+  }
+}

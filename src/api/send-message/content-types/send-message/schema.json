@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "send_messages",
+  "info": {
+    "singularName": "send-message",
+    "pluralName": "send-messages",
+    "displayName": "sendMessage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "integer"
+    },
+    "email": {
+      "type": "email"
+    },
+    "message": {
+      "type": "text"
+    }
+  }
+}

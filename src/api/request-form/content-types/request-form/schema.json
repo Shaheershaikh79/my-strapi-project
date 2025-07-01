@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "request_forms",
+  "info": {
+    "singularName": "request-form",
+    "pluralName": "request-forms",
+    "displayName": "Request Form",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "formTitle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.section"
+    },
+    "fieldName": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.name"
+    }
+  }
+}

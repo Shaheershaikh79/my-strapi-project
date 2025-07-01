@@ -106,6 +106,16 @@ export interface CommonIconDetails extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonKeyFeatures extends Struct.ComponentSchema {
+  collectionName: 'components_common_key_features';
+  info: {
+    displayName: 'keyFeatures';
+  };
+  attributes: {
+    option: Schema.Attribute.String;
+  };
+}
+
 export interface CommonLinkItem extends Struct.ComponentSchema {
   collectionName: 'components_common_link_items';
   info: {
@@ -133,6 +143,16 @@ export interface CommonMainBanner extends Struct.ComponentSchema {
     buttonOneTitle: Schema.Attribute.String;
     buttonTwoTitle: Schema.Attribute.String;
     HeroSection: Schema.Attribute.Component<'common.section', true>;
+  };
+}
+
+export interface CommonName extends Struct.ComponentSchema {
+  collectionName: 'components_common_names';
+  info: {
+    displayName: 'name';
+  };
+  attributes: {
+    name: Schema.Attribute.String;
   };
 }
 
@@ -299,8 +319,10 @@ declare module '@strapi/strapi' {
       'common.discovery-section': CommonDiscoverySection;
       'common.icon-array': CommonIconArray;
       'common.icon-details': CommonIconDetails;
+      'common.key-features': CommonKeyFeatures;
       'common.link-item': CommonLinkItem;
       'common.main-banner': CommonMainBanner;
+      'common.name': CommonName;
       'common.premium-products': CommonPremiumProducts;
       'common.product': CommonProduct;
       'common.project-card': CommonProjectCard;
