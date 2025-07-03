@@ -4,13 +4,14 @@
   "info": {
     "singularName": "size",
     "pluralName": "sizes",
-    "displayName": "Size"
+    "displayName": "Size",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "value": {
+    "size": {
       "type": "string"
     }
   }

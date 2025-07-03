@@ -12,6 +12,16 @@ export interface CommonAbout extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonCatalogueHeading extends Struct.ComponentSchema {
+  collectionName: 'components_common_catalogue_headings';
+  info: {
+    displayName: 'catalogueHeading';
+  };
+  attributes: {
+    catalogueHeading: Schema.Attribute.Component<'common.section', true>;
+  };
+}
+
 export interface CommonCollectionDetails extends Struct.ComponentSchema {
   collectionName: 'components_common_collection_details';
   info: {
@@ -49,7 +59,6 @@ export interface CommonCollectionsSection extends Struct.ComponentSchema {
     backgroundImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
-    cards: Schema.Attribute.Component<'common.collections-cards-details', true>;
     CollectionComponent: Schema.Attribute.Component<'common.section', false>;
   };
 }
@@ -69,6 +78,38 @@ export interface CommonContactDetails extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonDirectContact extends Struct.ComponentSchema {
+  collectionName: 'components_common_direct_contacts';
+  info: {
+    description: '';
+    displayName: 'directContact';
+  };
+  attributes: {
+    directContactCard: Schema.Attribute.Component<
+      'common.direct-contact-card',
+      true
+    >;
+    directContactComponentHeading: Schema.Attribute.Component<
+      'common.section',
+      false
+    >;
+  };
+}
+
+export interface CommonDirectContactCard extends Struct.ComponentSchema {
+  collectionName: 'components_common_direct_contact_cards';
+  info: {
+    description: '';
+    displayName: 'directContactCard';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+    valueone: Schema.Attribute.String;
+    valuetwo: Schema.Attribute.String;
+  };
+}
+
 export interface CommonDiscoverySection extends Struct.ComponentSchema {
   collectionName: 'components_common_discovery_sections';
   info: {
@@ -80,6 +121,17 @@ export interface CommonDiscoverySection extends Struct.ComponentSchema {
       'images' | 'files' | 'videos' | 'audios'
     >;
     DiscoverySection: Schema.Attribute.Component<'common.section', false>;
+  };
+}
+
+export interface CommonGetInTouch extends Struct.ComponentSchema {
+  collectionName: 'components_common_get_in_touches';
+  info: {
+    description: '';
+    displayName: 'getInTouchHeading';
+  };
+  attributes: {
+    getInTouch: Schema.Attribute.Component<'common.section', true>;
   };
 }
 
@@ -227,6 +279,19 @@ export interface CommonSection extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonSizeWithPrice extends Struct.ComponentSchema {
+  collectionName: 'components_common_size_with_prices';
+  info: {
+    description: '';
+    displayName: 'sizeWithPrice';
+  };
+  attributes: {
+    boxPrice: Schema.Attribute.Integer;
+    m2Price: Schema.Attribute.Integer;
+    sizes: Schema.Attribute.Relation<'oneToMany', 'api::size.size'>;
+  };
+}
+
 export interface CommonValue extends Struct.ComponentSchema {
   collectionName: 'components_common_values';
   info: {
@@ -244,7 +309,7 @@ export interface CommonVariations extends Struct.ComponentSchema {
   };
   attributes: {
     colors: Schema.Attribute.Relation<'oneToMany', 'api::color.color'>;
-    sizes: Schema.Attribute.Relation<'oneToMany', 'api::size.size'>;
+    sizes: Schema.Attribute.Component<'common.size-with-price', true>;
     thicknesses: Schema.Attribute.Relation<
       'oneToMany',
       'api::thickness.thickness'
@@ -312,11 +377,15 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'common.about': CommonAbout;
+      'common.catalogue-heading': CommonCatalogueHeading;
       'common.collection-details': CommonCollectionDetails;
       'common.collections-cards-details': CommonCollectionsCardsDetails;
       'common.collections-section': CommonCollectionsSection;
       'common.contact-details': CommonContactDetails;
+      'common.direct-contact': CommonDirectContact;
+      'common.direct-contact-card': CommonDirectContactCard;
       'common.discovery-section': CommonDiscoverySection;
+      'common.get-in-touch': CommonGetInTouch;
       'common.icon-array': CommonIconArray;
       'common.icon-details': CommonIconDetails;
       'common.key-features': CommonKeyFeatures;
@@ -328,6 +397,7 @@ declare module '@strapi/strapi' {
       'common.project-card': CommonProjectCard;
       'common.project-showcase': CommonProjectShowcase;
       'common.section': CommonSection;
+      'common.size-with-price': CommonSizeWithPrice;
       'common.value': CommonValue;
       'common.variations': CommonVariations;
       'common.vision-component': CommonVisionComponent;

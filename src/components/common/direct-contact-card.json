@@ -1,17 +1,18 @@
 {
-  "collectionName": "components_common_collections_sections",
+  "collectionName": "components_common_direct_contact_cards",
   "info": {
-    "displayName": "CollectionsSection",
+    "displayName": "directContactCard",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "CollectionComponent": {
-      "type": "component",
-      "repeatable": false,
-      "component": "common.section"
+    "title": {
+      "type": "string"
     },
-    "backgroundImage": {
+    "valuetwo": {
+      "type": "string"
+    },
+    "icon": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -21,6 +22,9 @@
         "videos",
         "audios"
       ]
+    },
+    "valueone": {
+      "type": "string"
     }
   }
 }

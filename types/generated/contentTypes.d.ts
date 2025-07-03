@@ -443,6 +443,40 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCollectionCollection extends Struct.CollectionTypeSchema {
+  collectionName: 'collections';
+  info: {
+    description: '';
+    displayName: 'Collection';
+    pluralName: 'collections';
+    singularName: 'collection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::collection.collection'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiColorColor extends Struct.CollectionTypeSchema {
   collectionName: 'colors';
   info: {
@@ -546,6 +580,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'common.discovery-section',
         'common.project-showcase',
         'common.premium-products',
+        'common.catalogue-heading',
+        'common.get-in-touch',
+        'common.direct-contact',
       ]
     >;
     slug: Schema.Attribute.String &
@@ -609,7 +646,8 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
   attributes: {
     backgroundImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
+      'images' | 'files' | 'videos' | 'audios',
+      true
     >;
     catalogue: Schema.Attribute.Relation<
       'manyToOne',
@@ -765,6 +803,7 @@ export interface ApiSendMessageSendMessage extends Struct.CollectionTypeSchema {
 export interface ApiSizeSize extends Struct.CollectionTypeSchema {
   collectionName: 'sizes';
   info: {
+    description: '';
     displayName: 'Size';
     pluralName: 'sizes';
     singularName: 'size';
@@ -780,10 +819,10 @@ export interface ApiSizeSize extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::size.size'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    size: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    value: Schema.Attribute.String;
   };
 }
 
@@ -1326,6 +1365,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::catalogue.catalogue': ApiCatalogueCatalogue;
       'api::category.category': ApiCategoryCategory;
+      'api::collection.collection': ApiCollectionCollection;
       'api::color.color': ApiColorColor;
       'api::layout.layout': ApiLayoutLayout;
       'api::page.page': ApiPagePage;

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_common_size_with_prices",
+  "info": {
+    "displayName": "sizeWithPrice",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "m2Price": {
+      "type": "integer"
+    },
+    "sizes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::size.size"
+    },
+    "boxPrice": {
+      "type": "integer"
+    }
+  }
+}

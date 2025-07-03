@@ -17,9 +17,9 @@
       "target": "api::thickness.thickness"
     },
     "sizes": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::size.size"
+      "type": "component",
+      "repeatable": true,
+      "component": "common.size-with-price"
     }
   }
 }

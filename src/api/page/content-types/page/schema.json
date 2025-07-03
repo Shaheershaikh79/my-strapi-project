@@ -39,7 +39,10 @@
         "common.collections-section",
         "common.discovery-section",
         "common.project-showcase",
-        "common.premium-products"
+        "common.premium-products",
+        "common.catalogue-heading",
+        "common.get-in-touch",
+        "common.direct-contact"
       ]
     }
   }

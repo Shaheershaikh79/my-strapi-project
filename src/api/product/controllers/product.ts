@@ -1,57 +1,44 @@
-/**
- * product controller
- */
-
 import { factories } from "@strapi/strapi";
 
 export default factories.createCoreController(
-  "api::product.product", 
+  "api::product.product",
   ({ strapi }) => ({
     async find(ctx) {
       try {
         const { query } = ctx;
 
-        // Fetch products with deep population
         const products = await strapi.entityService.findMany(
           "api::product.product",
           {
             ...query,
             populate: {
               category: true,
-              variations: {
-                populate: {
-                  colors: {
-                    fields: ['id', 'value', 'publishedAt']
-                  },
-                  thicknesses: {
-                    fields: ['id', 'value', 'publishedAt']
-                  },
-                  sizes: {
-                    fields: ['id', 'value', 'publishedAt']
-                  }
-                }
-              },
-              backgroundImage: {
-                fields: ['id', 'url', 'formats']
-              },
+              backgroundImage: true,
               catalogue: {
                 populate: {
-                  file: {
-                    fields: ['id', 'url', 'name']
-                  }
-                }
-              }
-            }
+                  file: true,
+                },
+              },
+              variations: {
+                populate: {
+                  sizes: {
+                    populate: {
+                      sizes: true,
+                    },
+                  },
+                  colors: true, // Add if you use colors
+                  thicknesses: true, // Add if you use thicknesses
+                },
+              },
+            },
           }
         );
 
-        // Sanitize and return response
         const sanitizedProducts = await this.sanitizeOutput(products, ctx);
         return this.transformResponse(sanitizedProducts);
-        
       } catch (error) {
-        strapi.log.error('Error fetching products:', error);
-        ctx.throw(500, 'Internal server error');
+        strapi.log.error("Error fetching products:", error);
+        ctx.throw(500, "Internal server error");
       }
     },
 
@@ -59,52 +46,43 @@ export default factories.createCoreController(
       try {
         const { id } = ctx.params;
 
-        // Fetch single product with deep population
         const product = await strapi.entityService.findOne(
           "api::product.product",
           id,
           {
             populate: {
               category: true,
-              variations: {
-                populate: {
-                  colors: {
-                    fields: ['id', 'value', 'publishedAt']
-                  },
-                  thicknesses: {
-                    fields: ['id', 'value', 'publishedAt']
-                  },
-                  sizes: {
-                    fields: ['id', 'value', 'publishedAt']
-                  }
-                }
-              },
-              backgroundImage: {
-                fields: ['id', 'url', 'formats']
-              },
+              backgroundImage: true,
               catalogue: {
                 populate: {
-                  file: {
-                    fields: ['id', 'url', 'name']
-                  }
-                }
-              }
-            }
+                  file: true,
+                },
+              },
+              variations: {
+                populate: {
+                  sizes: {
+                    populate: {
+                      sizes: true,
+                    },
+                  },
+                  colors: true,
+                  thicknesses: true,
+                },
+              },
+            },
           }
         );
 
         if (!product) {
-          return ctx.notFound('Product not found');
+          return ctx.notFound("Product not found");
         }
 
-        // Sanitize and return response
         const sanitizedProduct = await this.sanitizeOutput(product, ctx);
         return this.transformResponse(sanitizedProduct);
-
       } catch (error) {
-        strapi.log.error('Error fetching product:', error);
-        ctx.throw(500, 'Internal server error');
+        strapi.log.error("Error fetching product:", error);
+        ctx.throw(500, "Internal server error");
       }
-    }
+    },
   })
 );

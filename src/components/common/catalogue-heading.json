@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_common_catalogue_headings",
+  "info": {
+    "displayName": "catalogueHeading"
+  },
+  "options": {},
+  "attributes": {
+    "catalogueHeading": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.section"
+    }
+  }
+}
