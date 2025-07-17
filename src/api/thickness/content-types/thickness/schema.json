@@ -4,14 +4,25 @@
   "info": {
     "singularName": "thickness",
     "pluralName": "thicknesses",
-    "displayName": "Thickness"
+    "displayName": "Thickness",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "value": {
-      "type": "string"
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

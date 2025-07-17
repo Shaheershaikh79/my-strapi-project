@@ -10,16 +10,31 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "heading": {
       "type": "component",
       "repeatable": false,
-      "component": "common.section"
+      "component": "common.section",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "card": {
       "type": "component",
       "repeatable": true,
-      "component": "common.project-card"
+      "component": "common.project-card",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
