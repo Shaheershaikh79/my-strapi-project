@@ -621,6 +621,77 @@ export interface ApiGlobalGlobal extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiImpressumImpressum extends Struct.SingleTypeSchema {
+  collectionName: 'impressums';
+  info: {
+    description: '';
+    displayName: 'impressum';
+    pluralName: 'impressums';
+    singularName: 'impressum';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    address: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    impressumContactDetails: Schema.Attribute.Component<
+      'common.impressum',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    liableForcContent: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    liableForLinks: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::impressum.impressum'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    representedBy: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    vatId: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
 export interface ApiLayoutLayout extends Struct.CollectionTypeSchema {
   collectionName: 'layouts';
   info: {
@@ -1613,6 +1684,7 @@ declare module '@strapi/strapi' {
       'api::collection.collection': ApiCollectionCollection;
       'api::color.color': ApiColorColor;
       'api::global.global': ApiGlobalGlobal;
+      'api::impressum.impressum': ApiImpressumImpressum;
       'api::layout.layout': ApiLayoutLayout;
       'api::page.page': ApiPagePage;
       'api::product-variation.product-variation': ApiProductVariationProductVariation;

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_common_impressums",
+  "info": {
+    "displayName": "impressum",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

@@ -158,6 +158,18 @@ export interface CommonIconDetails extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonImpressum extends Struct.ComponentSchema {
+  collectionName: 'components_common_impressums';
+  info: {
+    description: '';
+    displayName: 'impressum';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    value: Schema.Attribute.String;
+  };
+}
+
 export interface CommonKeyFeatures extends Struct.ComponentSchema {
   collectionName: 'components_common_key_features';
   info: {
@@ -388,6 +400,7 @@ declare module '@strapi/strapi' {
       'common.get-in-touch': CommonGetInTouch;
       'common.icon-array': CommonIconArray;
       'common.icon-details': CommonIconDetails;
+      'common.impressum': CommonImpressum;
       'common.key-features': CommonKeyFeatures;
       'common.link-item': CommonLinkItem;
       'common.main-banner': CommonMainBanner;
